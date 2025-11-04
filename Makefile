@@ -21,8 +21,8 @@ TARGET = trabalho_paa
 
 # Lista de arquivos-objeto (.o) necessários
 # main.o será criado na raiz
-# lerMapa.o será criado dentro de src/
-OBJECTS = main.o $(SRCDIR)/lerMapa.o
+# lerMapa.o e pDinamica.o serão criados dentro de src/
+OBJECTS = main.o $(SRCDIR)/lerMapa.o $(SRCDIR)/pDinamica.o
 
 
 # --- Regras ---
@@ -47,6 +47,11 @@ main.o: main.c $(SRCDIR)/lerMapa.h
 # Depende dos arquivos .c e .h em src/
 $(SRCDIR)/lerMapa.o: $(SRCDIR)/lerMapa.c $(SRCDIR)/lerMapa.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c $(SRCDIR)/lerMapa.c -o $(SRCDIR)/lerMapa.o
+
+# Regra para compilar src/pDinamica.o
+# Depende dos arquivos .c e .h em src/
+$(SRCDIR)/pDinamica.o: $(SRCDIR)/pDinamica.c $(SRCDIR)/pDinamica.h
+	$(CC) $(CFLAGS) $(INCLUDES) -c $(SRCDIR)/pDinamica.c -o $(SRCDIR)/pDinamica.o
 
 # Regra 'clean' para limpar os arquivos gerados
 # Permite que você digite 'make clean' para apagar o lixo
