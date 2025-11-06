@@ -1,6 +1,9 @@
 #ifndef LERMAPA_H
 #define LERMAPA_H
 
+#define INTRANSPONIVEL -1
+#define ANCORA -2
+
 typedef struct Tripulacao
 {
     int forcaTripulacao; // F

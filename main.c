@@ -15,6 +15,9 @@ int main(int argc, char *argv[])
 
     EstruturaPD *estruturaPD = criarEstruturaPD(mapa->altura, mapa->largura);
 
+    resolverPD(estruturaPD);
+    imprimirCaminho(estruturaPD);
+
     liberarEstruturaPD(estruturaPD);
     destruirMapa();
     free(mapa);

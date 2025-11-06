@@ -3,8 +3,6 @@
 #include <string.h>
 #include "lerMapa.h"
 
-#define INTRANSPONIVEL -1
-#define ANCORA -2
 
 void criarMapa() {
     mapa = malloc(sizeof(Mapa));
