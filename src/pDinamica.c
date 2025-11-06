@@ -208,29 +208,31 @@ void imprimirCaminho(EstruturaPD* pd) {
         int proximaLinha = -1;
         int proximoTempo = -1;
 
-        for (int k = linhaAtual - 1; k <= linhaAtual + 1; k++) {
-            if (k < 0 || k >= h) continue;
+        if (valorAtual == ANCORA) {
+            proximoTempo = 1 - tempoAtual; //entrou na ancora e trocou de tempo
 
-            if (valorAtual == ANCORA) {
-                int f_pres = getForcaOrigem(pd, 0, k, j - 1);
-                int f_pas = getForcaOrigem(pd, 1, k, j - 1);
+            for (int k = linhaAtual - 1; k <= linhaAtual + 1; k++) {
+                if (k < 0 || k >= h) continue; //fora do mapa
 
-                if (f_pres > melhorForcaAnterior) {
-                    melhorForcaAnterior = f_pres;
-                    proximaLinha = k;
-                    proximoTempo = 0;
-                }
-                if (f_pas > melhorForcaAnterior) {
-                    melhorForcaAnterior = f_pas;
-                    proximaLinha = k;
-                    proximoTempo = 1;
-                }
-            } else {
-                int f_origem = getForcaOrigem(pd, tempoAtual, k, j - 1);
+                int f_origem = getForcaOrigem(pd, proximoTempo, k, j - 1);
+                
                 if (f_origem > melhorForcaAnterior) {
                     melhorForcaAnterior = f_origem;
                     proximaLinha = k;
-                    proximoTempo = tempoAtual;
+                }
+            }
+        } else {
+
+            proximoTempo = tempoAtual;//continuou no mesmo tempo
+
+            for (int k = linhaAtual - 1; k <= linhaAtual + 1; k++) {
+                if (k < 0 || k >= h) continue;
+
+                int f_origem = getForcaOrigem(pd, proximoTempo, k, j - 1);
+
+                if (f_origem > melhorForcaAnterior) {
+                    melhorForcaAnterior = f_origem;
+                    proximaLinha = k;
                 }
             }
         }
