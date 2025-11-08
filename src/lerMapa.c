@@ -130,7 +130,7 @@ void leituraArquivo(int argc, char *argv[])
 
 void imprimirMapas()
 {
-    printf("----Mapas e Variveis----\n");
+    printf("----Mapas e Variaveis----\n");
     printf("h: %d, w: %d, F: %d, D: %d, N: %d\n", mapa->altura,
            mapa->largura, tropa->forcaTripulacao, tropa->forcaDescanso, forcaNikador);
 

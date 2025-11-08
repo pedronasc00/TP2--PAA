@@ -18,7 +18,7 @@ EstruturaPD *criarEstruturaPD(int linhas, int colunas)
     estruturaPD->melhorForca = malloc(2 * sizeof(int **));
     if (estruturaPD->melhorForca == NULL)
     {
-        printf("Erro ao alocar memória para os mapas de tempo!\n");
+        printf("Erro ao alocar memoria para os mapas de tempo!\n");
         exit(1);
     }
 
@@ -27,7 +27,7 @@ EstruturaPD *criarEstruturaPD(int linhas, int colunas)
         estruturaPD->melhorForca[tempo] = malloc(linhas * sizeof(int *));
         if (estruturaPD->melhorForca[tempo] == NULL)
         {
-            printf("Erro ao alocar memória para as linhas do tempo %d!\n", tempo);
+            printf("Erro ao alocar memoria para as linhas do tempo %d!\n", tempo);
             exit(1);
         }
 
@@ -36,7 +36,7 @@ EstruturaPD *criarEstruturaPD(int linhas, int colunas)
             estruturaPD->melhorForca[tempo][linha] = malloc(colunas * sizeof(int));
             if (estruturaPD->melhorForca[tempo][linha] == NULL)
             {
-                printf("Erro ao alocar memória para as colunas do tempo %d!\n", tempo);
+                printf("Erro ao alocar memoria para as colunas do tempo %d!\n", tempo);
                 exit(1);
             }
 
@@ -235,7 +235,7 @@ void imprimirCaminho(EstruturaPD *pd)
 
     if (forcaFinal <= 0)
     {
-        printf("A calamidade de Nikador é inevitável\n");
+        printf("A calamidade de Nikador e inevitavel\n");
         return;
     }
 
@@ -302,8 +302,7 @@ void imprimirCaminho(EstruturaPD *pd)
     }
     for (int j = 0; j < w; j++)
     {
-        // A saída no PDF de exemplo (20, 11).
-        // Assumindo que signifique "linha 2, coluna 0", "linha 1, coluna 1", etc.
+               
         printf("%d %d\n", caminho[j].i, caminho[j].j);
     }
 
